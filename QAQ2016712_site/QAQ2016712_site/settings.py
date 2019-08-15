@@ -30,9 +30,12 @@ ALLOWED_HOSTS = ['*']
 
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'chatroom_stuff',
     'site_app',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -70,6 +73,17 @@ TEMPLATES = [
         },
     },
 ]
+
+ASGI_APPLICATION = 'QAQ2016712_site.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 WSGI_APPLICATION = 'QAQ2016712_site.wsgi.application'
 

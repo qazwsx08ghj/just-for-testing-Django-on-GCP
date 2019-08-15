@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from site_app.views import index
+from chatroom_stuff.views import chat,room
+from django.conf.urls import include
+
+
+
 urlpatterns = [
     path('', index),
+    path('chat-room-select/',include('chatroom_stuff.urls'),name = 'chat-rooms'),
     path('admin/', admin.site.urls),
 ]
